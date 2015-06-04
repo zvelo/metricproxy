@@ -14,7 +14,7 @@ ExecStart=/usr/bin/docker run \
   --rm \
   --name %p \
   --hostname %H \
-  --publish-all \
+  --publish 18080:18080 \
   --volume /usr/share/ca-certificates/:/etc/ssl/certs \
   zvelo/%p
 ExecStop=/usr/bin/docker stop %p
