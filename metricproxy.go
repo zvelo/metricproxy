@@ -144,7 +144,7 @@ func (proxyCommandLineConfiguration *proxyCommandLineConfigurationT) getLogrusFo
 	if useJSON {
 		return &log.JSONFormatter{}
 	}
-	return &log.TextFormatter{DisableColors: true}
+	return &log.TextFormatter{}
 }
 
 func (proxyCommandLineConfiguration *proxyCommandLineConfigurationT) setupLogrus(loadedConfig *config.ProxyConfig) {

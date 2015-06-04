@@ -1,0 +1,20 @@
+{
+  "StatsDelay": {{.STATS_DELAY}},
+  "LogDir": "-",
+  "ListenFrom": [{
+        "Type": "signalfx",
+        "ListenAddr" : "0.0.0.0:18080",
+        "Timeout": "{{.LISTEN_TIMEOUT}}"
+    }],
+    "ForwardTo": [{
+        "Type": "signalfx-json",
+        "Name": "signalfx",
+        "URL": "{{.FORWARD_SIGNALFX_URL}}",
+        "DefaultAuthToken": "{{.FORWARD_SIGNALFX_TOKEN}}",
+        "Timeout": "{{.FORWARD_TIMEOUT}}",
+        "BufferSize": {{.FORWARD_BUFFER_SIZE}},
+        "DrainingThreads": {{.FORWARD_DRAINING_THREADS}},
+        "MaxDrainSize": {{.FORWARD_MAX_DRAIN_SIZE}},
+        "FormatVersion": {{.FORWARD_FORMAT_VERSION}}
+    }]
+}

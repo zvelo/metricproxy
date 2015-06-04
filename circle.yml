@@ -1,0 +1,30 @@
+machine:
+  services:
+    - docker
+
+checkout:
+  post:
+    - mkdir -p $HOME/.go_workspace/src/_/home/ubuntu
+    - mkdir -p $HOME/.go_workspace/src/github.com/$CIRCLE_PROJECT_USERNAME
+    - ln -sf `pwd` $HOME/.go_workspace/src/_/home/ubuntu
+    - ln -sf `pwd` $HOME/.go_workspace/src/github.com/$CIRCLE_PROJECT_USERNAME
+
+dependencies:
+  override:
+    # godep should be the only build dependency
+    - if [[ ! -e ~/.go_workspace/bin/godep ]]; then go get -v github.com/tools/godep; fi
+
+  post:
+    - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+
+test:
+  override:
+    - make build
+    - make image
+
+deployment:
+  hub:
+    branch: master
+    commands:
+      - docker tag -f $DOCKER_IMAGE:latest $DOCKER_IMAGE:`date +%Y%m%d-%H%M%S`
+      - docker push $DOCKER_IMAGE:latest

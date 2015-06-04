@@ -2,3 +2,8 @@ metricproxy.pid
 /.arcconfig
 /*.iml
 /sfproxytest.json
+/.image-stamp
+/Docker/metricproxy
+/cmd/metricproxy
+/Docker/envetcd
+/Docker/config.json
