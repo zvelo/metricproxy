@@ -3,7 +3,7 @@ EXECUTABLE=metricproxy
 DOCKER_DIR=Docker
 DOCKER_FILE=$(DOCKER_DIR)/Dockerfile
 GO_FILES=$(foreach dir, $(ALL_DIRS), $(wildcard $(dir)/*.go))
-ENVETCD_VERSION=v0.3.2
+ENVETCD_VERSION=v0.3.3
 
 all: build
 
