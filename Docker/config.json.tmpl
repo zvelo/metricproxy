@@ -3,12 +3,13 @@
     "LogDir": "-",
     "ListenFrom": [{
         "Type": "signalfx",
+        "Name": "signalfxlistener",
         "ListenAddr": "0.0.0.0:18080",
         "Timeout": "{{.LISTEN_TIMEOUT}}"
     }],
     "ForwardTo": [{
         "Type": "signalfx-json",
-        "Name": "signalfx",
+        "Name": "proxy-{{.ENVETCD_HOSTNAME}}",
         "URL": "{{.FORWARD_SIGNALFX_URL}}",
         "DefaultAuthToken": "{{.FORWARD_SIGNALFX_TOKEN}}",
         "Timeout": "{{.FORWARD_TIMEOUT}}",

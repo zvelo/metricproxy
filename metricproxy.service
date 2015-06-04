@@ -13,6 +13,7 @@ ExecStartPre=/usr/bin/docker pull zvelo/%p
 ExecStart=/usr/bin/docker run \
   --rm \
   --name %p \
+  --hostname %H \
   --publish-all \
   --volume /usr/share/ca-certificates/:/etc/ssl/certs \
   zvelo/%p
