@@ -1,9 +1,9 @@
 {
-  "StatsDelay": {{.STATS_DELAY}},
-  "LogDir": "-",
-  "ListenFrom": [{
+    "StatsDelay": {{.STATS_DELAY}},
+    "LogDir": "-",
+    "ListenFrom": [{
         "Type": "signalfx",
-        "ListenAddr" : "0.0.0.0:18080",
+        "ListenAddr": "0.0.0.0:18080",
         "Timeout": "{{.LISTEN_TIMEOUT}}"
     }],
     "ForwardTo": [{
