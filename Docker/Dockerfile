@@ -1,7 +1,7 @@
 FROM scratch
 MAINTAINER Joshua Rubin <jrubin@zvelo.com>
 ENV ETCD_USE_DEFAULT_GATEWAY true
-ENV ENVETCD_TEMPLATES /config.json.tmpl
+ENV ENVETCD_TEMPLATES /config.json
 ENV ENVETCD_SYSTEM metrics
 ENV ENVETCD_SERVICE metricproxy
 ENTRYPOINT ["/envetcd", "/metricproxy"]
