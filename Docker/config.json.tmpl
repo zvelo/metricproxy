@@ -12,7 +12,7 @@
         "Name": "proxy-{{if .ENVETCD_HOSTNAME}}{{.ENVETCD_HOSTNAME}}{{else if .HOSTNAME}}{{.HOSTNAME}}{{else}}unknown{{end}}",
         "URL": "{{if .FORWARD_SIGNALFX_URL}}{{.FORWARD_SIGNALFX_URL}}{{else}}https://ingest.signalfx.com/v2/datapoint{{end}}",
         "DefaultAuthToken": "{{.FORWARD_SIGNALFX_TOKEN}}",
-        "Timeout": "{{if .FORWARD_TIMEOUT}}{{.FORWARD_TIMEOUT}}{{else}}60s{{end}}",
+        "Timeout": "{{if .FORWARD_TIMEOUT}}{{.FORWARD_TIMEOUT}}{{else}}1s{{end}}",
         "BufferSize": {{if .FORWARD_BUFFER_SIZE}}{{.FORWARD_BUFFER_SIZE}}{{else}}1000000{{end}},
         "DrainingThreads": {{if .FORWARD_DRAINING_THREADS}}{{.FORWARD_DRAINING_THREADS}}{{else}}10{{end}},
         "MaxDrainSize": {{if .FORWARD_MAX_DRAIN_SIZE}}{{.FORWARD_MAX_DRAIN_SIZE}}{{else}}3000{{end}},
