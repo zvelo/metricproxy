@@ -1,21 +1,26 @@
 {
-    "StatsDelay": {{.STATS_DELAY}},
+    "StatsDelay": {{if .STATS_DELAY}}{{.STATS_DELAY}}{{else}}null{{end}},
     "LogDir": "-",
     "ListenFrom": [{
         "Type": "signalfx",
         "Name": "signalfxlistener",
         "ListenAddr": "0.0.0.0:18080",
-        "Timeout": "{{.LISTEN_TIMEOUT}}"
+        "Timeout": "{{if .LISTEN_TIMEOUT}}{{.LISTEN_TIMEOUT}}{{else}}30s{{end}}"
     }],
-    "ForwardTo": [{
+    "ForwardTo": [{{if .FORWARD_SIGNALFX_TOKEN}}{
         "Type": "signalfx-json",
-        "Name": "proxy-{{.ENVETCD_HOSTNAME}}",
-        "URL": "{{.FORWARD_SIGNALFX_URL}}",
+        "Name": "proxy-{{if .ENVETCD_HOSTNAME}}{{.ENVETCD_HOSTNAME}}{{else if .HOSTNAME}}{{.HOSTNAME}}{{else}}unknown{{end}}",
+        "URL": "{{if .FORWARD_SIGNALFX_URL}}{{.FORWARD_SIGNALFX_URL}}{{else}}https://ingest.signalfx.com/v2/datapoint{{end}}",
         "DefaultAuthToken": "{{.FORWARD_SIGNALFX_TOKEN}}",
-        "Timeout": "{{.FORWARD_TIMEOUT}}",
-        "BufferSize": {{.FORWARD_BUFFER_SIZE}},
-        "DrainingThreads": {{.FORWARD_DRAINING_THREADS}},
-        "MaxDrainSize": {{.FORWARD_MAX_DRAIN_SIZE}},
-        "FormatVersion": {{.FORWARD_FORMAT_VERSION}}
-    }]
+        "Timeout": "{{if .FORWARD_TIMEOUT}}{{.FORWARD_TIMEOUT}}{{else}}60s{{end}}",
+        "BufferSize": {{if .FORWARD_BUFFER_SIZE}}{{.FORWARD_BUFFER_SIZE}}{{else}}1000000{{end}},
+        "DrainingThreads": {{if .FORWARD_DRAINING_THREADS}}{{.FORWARD_DRAINING_THREADS}}{{else}}10{{end}},
+        "MaxDrainSize": {{if .FORWARD_MAX_DRAIN_SIZE}}{{.FORWARD_MAX_DRAIN_SIZE}}{{else}}3000{{end}},
+        "FormatVersion": {{if .FORWARD_FORMAT_VERSION}}{{.FORWARD_FORMAT_VERSION}}{{else}}3{{end}}
+    }{{end}}{{if and .FORWARD_SIGNALFX_TOKEN .FORWARD_USE_CARBON}}, {{end}}{{if .FORWARD_USE_CARBON}}{
+        "Type": "carbon",
+        "Name": "proxy-{{if .ENVETCD_HOSTNAME}}{{.ENVETCD_HOSTNAME}}{{else if .HOSTNAME}}{{.HOSTNAME}}{{else}}unknown{{end}}",
+        "Host": "{{if .FORWARD_CARBON_HOST}}{{.FORWARD_CARBON_HOST}}{{else if .ENVETCD_DEFAULT_GATEWAY}}{{.ENVETCD_DEFAULT_GATEWAY}}{{else}}127.0.0.1{{end}}",
+        "Port": 2003
+    }{{end}}]
 }
