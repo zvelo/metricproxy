@@ -1,5 +1,5 @@
 {
-	"ImportPath": "github.com/signalfx/metricproxy",
+	"ImportPath": "github.com/zvelo/metricproxy",
 	"GoVersion": "go1.4.2",
 	"Packages": [
 		"./..."
@@ -7,8 +7,8 @@
 	"Deps": [
 		{
 			"ImportPath": "github.com/Sirupsen/logrus",
-			"Comment": "v0.7.3",
-			"Rev": "55eb11d21d2a31a3cc93838241d04800f52e823d"
+			"Comment": "v0.8.3-3-g07d998d",
+			"Rev": "07d998d174c4e2dc90e2f1989a20724220bca1ff"
 		},
 		{
 			"ImportPath": "github.com/cep21/gohelpers/stringhelper",
@@ -32,7 +32,7 @@
 		},
 		{
 			"ImportPath": "github.com/golang/protobuf/proto",
-			"Rev": "655cdfa588ea190e901bc5590e65d5621688847c"
+			"Rev": "ab974be44dc3b7b8a1fb306fb32fe9b9f3864b3d"
 		},
 		{
 			"ImportPath": "github.com/gorilla/context",
@@ -40,7 +40,7 @@
 		},
 		{
 			"ImportPath": "github.com/gorilla/mux",
-			"Rev": "8096f47503459bcc74d1f4c487b7e6e42e5746b5"
+			"Rev": "9cb89f07ca03c6a28d1e237ba033bc6a29422fd6"
 		},
 		{
 			"ImportPath": "github.com/signalfx/com_signalfx_metrics_protobuf",
@@ -48,6 +48,10 @@
 		},
 		{
 			"ImportPath": "github.com/signalfx/golib/datapoint",
+			"Rev": "d9c9653f3763062b54d7ab944121b2e2ae6369a8"
+		},
+		{
+			"ImportPath": "github.com/signalfx/golib/event",
 			"Rev": "d9c9653f3763062b54d7ab944121b2e2ae6369a8"
 		},
 		{
@@ -59,17 +63,63 @@
 			"Rev": "d9c9653f3763062b54d7ab944121b2e2ae6369a8"
 		},
 		{
+			"ImportPath": "github.com/signalfx/metricproxy/config",
+			"Comment": "v0.6.0-5-g0f43015",
+			"Rev": "0f430151da774e8333006e5925b7ee93c7dbcec2"
+		},
+		{
+			"ImportPath": "github.com/signalfx/metricproxy/dp/dpbuffered",
+			"Comment": "v0.6.0-5-g0f43015",
+			"Rev": "0f430151da774e8333006e5925b7ee93c7dbcec2"
+		},
+		{
+			"ImportPath": "github.com/signalfx/metricproxy/dp/dpdimsort",
+			"Comment": "v0.6.0-5-g0f43015",
+			"Rev": "0f430151da774e8333006e5925b7ee93c7dbcec2"
+		},
+		{
+			"ImportPath": "github.com/signalfx/metricproxy/dp/dplocal",
+			"Comment": "v0.6.0-5-g0f43015",
+			"Rev": "0f430151da774e8333006e5925b7ee93c7dbcec2"
+		},
+		{
+			"ImportPath": "github.com/signalfx/metricproxy/dp/dpsink",
+			"Comment": "v0.6.0-5-g0f43015",
+			"Rev": "0f430151da774e8333006e5925b7ee93c7dbcec2"
+		},
+		{
+			"ImportPath": "github.com/signalfx/metricproxy/dp/dptest",
+			"Comment": "v0.6.0-5-g0f43015",
+			"Rev": "0f430151da774e8333006e5925b7ee93c7dbcec2"
+		},
+		{
+			"ImportPath": "github.com/signalfx/metricproxy/protocol",
+			"Comment": "v0.6.0-5-g0f43015",
+			"Rev": "0f430151da774e8333006e5925b7ee93c7dbcec2"
+		},
+		{
+			"ImportPath": "github.com/signalfx/metricproxy/stats",
+			"Comment": "v0.6.0-5-g0f43015",
+			"Rev": "0f430151da774e8333006e5925b7ee93c7dbcec2"
+		},
+		{
+			"ImportPath": "github.com/signalfx/metricproxy/statuspage",
+			"Comment": "v0.6.0-5-g0f43015",
+			"Rev": "0f430151da774e8333006e5925b7ee93c7dbcec2"
+		},
+		{
 			"ImportPath": "github.com/stretchr/testify/assert",
-			"Rev": "e22aedd37671fb115be6c0c25129c405cb575cfd"
+			"Comment": "v1.0-17-g089c718",
+			"Rev": "089c7181b8c728499929ff09b62d3fdd8df8adff"
 		},
 		{
 			"ImportPath": "golang.org/x/net/context",
-			"Rev": "169f42267807fe93f4a4b0150583e410aefafe4e"
+			"Rev": "4dbd2a1007ff2b28b172e65b1ced9616645dd2b5"
 		},
 		{
 			"ImportPath": "gopkg.in/natefinch/lumberjack.v2",
-			"Comment": "v1.0-12-gd28785c",
-			"Rev": "d28785c2f27cd682d872df46ccd8232843629f54"
+			"Comment": "v1.0-16-g20b71e5",
+			"Rev": "20b71e5b60d756d3d2f80def009790325acc2b23"
 		}
 	]
 }
